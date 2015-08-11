@@ -28,8 +28,8 @@ public:
 
     /**
      * @brief Create and open a new connection
-     * @param host hostname or ip of redis server, default localhost
-     * @param port port of redis server, default: 6379
+     * @param host hostname or ip or unix socket path of redis server
+     * @param port port of redis server
      * @return
      */
     inline static ptr_t create(const std::string& path)
@@ -37,7 +37,7 @@ public:
         return ptr_t(new connection(path));
     }
     
-    inline static ptr_t create(const std::string& host="localhost",
+    inline static ptr_t create(const std::string& host,
                                const unsigned int port)
     {
         return ptr_t(new connection(host, port));

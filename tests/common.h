@@ -22,7 +22,7 @@ public:
         }
         else
         {
-            c = redis3m::connection::create();
+            c = redis3m::connection::create('localhost',6379);
         }
         c->run(command("FLUSHDB"));
     }
@@ -52,7 +52,7 @@ public:
         }
         else
         {
-            sp = redis3m::simple_pool::create();
+            sp = redis3m::simple_pool::create('localhost',6379);
         }
         redis3m::connection::ptr_t conn = sp->get();
         conn->run(command("FLUSHDB"));
