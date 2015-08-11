@@ -32,8 +32,13 @@ public:
      * @param port port of redis server, default: 6379
      * @return
      */
+    inline static ptr_t create(const std::string& path)
+    {
+        return ptr_t(new connection(path));
+    }
+    
     inline static ptr_t create(const std::string& host="localhost",
-                               const unsigned int port=6379)
+                               const unsigned int port)
     {
         return ptr_t(new connection(host, port));
     }
