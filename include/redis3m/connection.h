@@ -89,6 +89,7 @@ public:
 
 private:
     friend class connection_pool;
+    connection(const std::string& path);
     connection(const std::string& host, const unsigned int port);
 
     role_t _role;
